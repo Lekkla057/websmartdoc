@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { Link } from "react-router-dom";
-import { LineChart, Line,XAxis,YAxis,CartesianGrid } from "recharts";
+import { LineChart, Line,XAxis,YAxis,CartesianGrid,ResponsiveContainer } from "recharts";
 
 class Home extends Component {
   constructor(props) {
@@ -52,7 +52,8 @@ class Home extends Component {
       <div style={{ alignItems: "center", placeItems: "center" }}>
         <h1>ประวัติข้อมูลสุขภาพ</h1>
         <br></br>
-        <LineChart width={800} height={400} data={this.state.data}>
+        <ResponsiveContainer width="80%" height={400}>
+        <LineChart  data={this.state.data}>
           <Line type="monotone" dataKey="C" stroke="red" />
           <Line type="monotone" dataKey="O2" stroke="grey" />
           <Line type="monotone" dataKey="heartRate" stroke="green" />
@@ -61,6 +62,8 @@ class Home extends Component {
           <YAxis />
           <XAxis dataKey="date" />
         </LineChart>
+        </ResponsiveContainer>
+
         <div style={{display:"flex"}}>
         <span style={{display:"flex",alignItems:"center"}}><div style={{width:10,height:10,background:"red",marginRight:5}}></div>อุณหภูมิ</span>
         <span style={{display:"flex",alignItems:"center"}}><div style={{width:10,height:10,background:"grey",marginRight:5}}></div>ค่าออกซิเจน</span>
